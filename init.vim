@@ -51,6 +51,7 @@ set tabstop=4
 set softtabstop=4
 set clipboard=unnamed
 set cmdheight=2
+set maxmempattern=2000
 let g:rehash256 = 1
 let g:molokai_original = 1
 colorscheme molokai
