@@ -2,8 +2,8 @@
 " === plugin install
 " ===
 call plug#begin('~/.vim/plugged')
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'fatih/vim-go' ", { 'do': ':GoUpdateBinaries' }
-Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'ryanoasis/vim-devicons'
 Plug 'bling/vim-airline'
@@ -18,6 +18,7 @@ Plug 'voldikss/vim-floaterm'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-surround'
 Plug 'terryma/vim-expand-region'
+Plug 'git@github.com:fugalh/desert.vim.git'
 call plug#end()
 
 " ===
@@ -49,12 +50,12 @@ set autoindent smartindent shiftround
 set shiftwidth=4    
 set tabstop=4       
 set softtabstop=4
-set clipboard=unnamed
+set clipboard+=unnamedplus
 set cmdheight=2
 set maxmempattern=2000
 let g:rehash256 = 1
 let g:molokai_original = 1
-colorscheme molokai
+colorscheme desert
                 
 " remember the last time position
 if has("autocmd")                                                          
