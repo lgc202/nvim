@@ -5,3 +5,4 @@
  安装: pip3 install pynvim
  
 安装插件: git clone git@github.com:lgc202/nvim.git
+安装go插件: (:GoInstallBinaries)
