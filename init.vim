@@ -18,7 +18,6 @@ Plug 'voldikss/vim-floaterm'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-surround'
 Plug 'terryma/vim-expand-region'
-Plug 'git@github.com:fugalh/desert.vim.git'
 call plug#end()
 
 " ===
@@ -55,7 +54,7 @@ set cmdheight=2
 set maxmempattern=2000
 let g:rehash256 = 1
 let g:molokai_original = 1
-colorscheme desert
+colorscheme molokai
                 
 " remember the last time position
 if has("autocmd")                                                          
