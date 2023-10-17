@@ -9,128 +9,125 @@ opt.autochdir = false
 
 opt.number = true
 opt.relativenumber = true
--- vim.g.neovide = true
 
 -- -- highlight current row
--- opt.cursorline = true
+opt.cursorline = true
+opt.signcolumn = "yes"
+opt.colorcolumn = "80"
 
--- opt.signcolumn = "yes"
+opt.tabstop = 4
+opt.softtabstop = 4
+opt.shiftround = true
 
--- opt.colorcolumn = "80"
+opt.shiftwidth = 4
 
--- opt.tabstop = 4
--- opt.softtabstop = 4
--- opt.shiftround = true
+opt.expandtab = true
 
--- opt.shiftwidth = 4
+opt.autoindent = true
+opt.smartindent = true
 
--- opt.expandtab = true
+opt.ignorecase = true
+opt.smartcase = true
 
--- opt.autoindent = true
--- opt.smartindent = true
+opt.hlsearch = true
+opt.incsearch = true
 
--- opt.ignorecase = true
--- opt.smartcase = true
+opt.cmdheight = 1
 
--- opt.hlsearch = true
--- opt.incsearch = true
+opt.autoread = true
 
--- opt.cmdheight = 1
+opt.wrap = false
+opt.whichwrap = "b,s,<,>,[,]"
 
--- opt.autoread = true
+opt.hidden = true
 
--- opt.wrap = false
--- opt.whichwrap = "b,s,<,>,[,]"
+opt.mouse = "a"
 
--- opt.hidden = true
+opt.backup = false
+opt.writebackup = false
+opt.swapfile = false
 
--- opt.mouse = "a"
+opt.updatetime = 300
+opt.timeoutlen = 400
 
--- opt.backup = false
--- opt.writebackup = false
--- opt.swapfile = false
+opt.splitbelow = true
+opt.splitright = true
 
--- opt.updatetime = 300
--- opt.timeoutlen = 400
+opt.completeopt = "menu,menuone,noselect,noinsert"
 
--- opt.splitbelow = true
--- opt.splitright = true
+opt.background = "dark"
 
--- opt.completeopt = "menu,menuone,noselect,noinsert"
+opt.termguicolors = true
 
--- opt.background = "dark"
+--vim.o.list = true
+--vim.o.listchars = "space:·,tab:··,eol:↴"
 
--- opt.termguicolors = true
+opt.wildmenu = true
 
--- vim.o.list = true
--- vim.o.listchars = "space:·,tab:··,eol:↴"
+opt.pumheight = 10
 
--- opt.wildmenu = true
+opt.showtabline = 1
 
--- opt.pumheight = 10
+opt.showmode = false
 
--- opt.showtabline = 1
+opt.foldcolumn = "1"
+opt.foldlevel = 99
+opt.foldlevelstart = 99
+opt.foldenable = true
+opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 
--- opt.showmode = false
+vim.g.zig_fmt_autosave = false
 
--- opt.foldcolumn = "1"
--- opt.foldlevel = 99
--- opt.foldlevelstart = 99
--- opt.foldenable = true
--- opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+-- diasble netrw
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
--- vim.g.zig_fmt_autosave = false
+-- replace default diagnostic signs
+-- more:https://neovim.io/doc/user/diagnostic.html#diagnostic-signs
+local signs = { Error = "󰅚", Warn = "", Hint = "", Info = "" }
+for type, icon in pairs(signs) do
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
 
--- -- diasble netrw
--- vim.g.loaded_netrw = 1
--- vim.g.loaded_netrwPlugin = 1
+if not vim.g.neovide then
+  -- Put anything you want to happen only in Neovide here
+  return
+end
 
--- -- replace default diagnostic signs
--- -- more:https://neovim.io/doc/user/diagnostic.html#diagnostic-signs
--- local signs = { Error = "󰅚", Warn = "", Hint = "", Info = "" }
--- for type, icon in pairs(signs) do
---     local hl = "DiagnosticSign" .. type
---     vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
--- end
+-- Here is for neovide
+do
+  local xdg_session = os.getenv("XDG_SESSION_TYPE")
 
--- if not vim.g.neovide then
---     -- Put anything you want to happen only in Neovide here
---     return
--- end
+  if xdg_session == "x11" then
+    vim.o.guifont = "Maple Mono NF:h11"
+  else
+    vim.o.guifont = "Maple Mono NF:h15"
+  end
+end
 
--- -- Here is for neovide
--- do
---     local xdg_session = os.getenv("XDG_SESSION_TYPE")
+vim.g.neovide_padding_top = 0
+vim.g.neovide_padding_bottom = 0
+vim.g.neovide_padding_right = 0
+vim.g.neovide_padding_left = 0
 
---     if xdg_session == "x11" then
---         vim.o.guifont = "Maple Mono NF:h11"
---     else
---         vim.o.guifont = "Maple Mono NF:h15"
---     end
--- end
+vim.g.neovide_floating_blur_amount_x = 2.0
+vim.g.neovide_floating_blur_amount_y = 2.0
 
--- vim.g.neovide_padding_top = 0
--- vim.g.neovide_padding_bottom = 0
--- vim.g.neovide_padding_right = 0
--- vim.g.neovide_padding_left = 0
+vim.g.neovide_transparency = 0.9
 
--- vim.g.neovide_floating_blur_amount_x = 2.0
--- vim.g.neovide_floating_blur_amount_y = 2.0
+vim.g.neovide_hide_mouse_when_typing = true
 
--- vim.g.neovide_transparency = 0.9
+vim.g.neovide_refresh_rate = 144
 
--- vim.g.neovide_hide_mouse_when_typing = true
+vim.g.neovide_refresh_rate_idle = 5
 
--- vim.g.neovide_refresh_rate = 144
+vim.g.neovide_fullscreen = false
 
--- vim.g.neovide_refresh_rate_idle = 5
+vim.g.neovide_remember_window_size = true
 
--- vim.g.neovide_fullscreen = false
+vim.g.neovide_cursor_antialiasing = true
 
--- vim.g.neovide_remember_window_size = true
+vim.g.neovide_input_ime = false
 
--- vim.g.neovide_cursor_antialiasing = true
-
--- vim.g.neovide_input_ime = false
-
--- vim.g.neovide_cursor_animation_length = 0
+vim.g.neovide_cursor_animation_length = 0
