@@ -14,6 +14,8 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
     -- manage itself
     "folke/lazy.nvim",
+    -- 基础库
+    { "nvim-lua/plenary.nvim" },
     -- 通知插件
     {
         "rcarriga/nvim-notify",
