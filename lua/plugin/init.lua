@@ -168,4 +168,13 @@ require("lazy").setup({
             require("plugin.conform")
         end,
     },
+    -- 显示加载进度插件
+    {
+        "j-hui/fidget.nvim",
+        branch = "legacy",
+        event = "VeryLazy",
+        config = function()
+            require("plugin.fidget")
+        end,
+    },
 })
