@@ -5,7 +5,6 @@ if not status then
 end
 
 nvim_tree.setup({
-
     disable_netrw = true,
     hijack_netrw = true,
     sort_by = "name",
@@ -108,12 +107,14 @@ nvim_tree.setup({
     actions = {
         use_system_clipboard = true,
         change_dir = {
-            enable = true,
+            enable = false,
             global = false,
             restrict_above_cwd = false,
         },
         open_file = {
+            -- 打开文件时关闭
             quit_on_open = false,
+            -- 首次打开大小适配
             resize_window = false,
             window_picker = {
                 enable = true,

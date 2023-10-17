@@ -1,5 +1,8 @@
 return {
-    "gofumpt",
-    "goimports",
-    "efm", -- general language server
+    "stylua",    -- lua
+    "shfmt",     -- bash
+    "gofumpt",   -- golang
+    "goimports", -- golang
+    "prettierd", -- json & html
+    "isort",     -- python
 }

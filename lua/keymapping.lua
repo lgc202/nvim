@@ -25,6 +25,14 @@ which_key.register({
     ["<C-Right>"] = { ":vertical resize +5<CR>", "Increase Window Width" },
     ["<C-Down>"] = { ":horizontal resize -5<CR>", "Decrease Window Height" },
     ["<C-Up>"] = { ":horizontal resize +5<CR>", "Decrease Window Height" },
+
+    -- LSP 相关
+    ["K"] = { "<cmd>lua vim.lsp.buf.hover()<CR>", "Show hover" },
+    ["gd"] = { "<cmd>lua vim.lsp.buf.definition()<CR>", "Goto Definition" },
+    ["gD"] = { "<cmd>lua vim.lsp.buf.declaration()<CR>", "Goto declaration" },
+    ["gr"] = { "<cmd>lua vim.lsp.buf.references()<CR>", "Goto references" },
+    ["gi"] = { "<cmd>lua vim.lsp.buf.implementation()<CR>", "Goto Implementation" },
+    ["gs"] = { "<cmd>lua vim.lsp.buf.signature_help()<CR", "show signature help" },
 }, { prefix = "" })
 
 which_key.register({
@@ -34,4 +42,8 @@ which_key.register({
     w = { ":w<CR>", "Save" },
     -- 退出
     q = { ":q<CR>", "Quit" },
+    -- 打开代码大纲
+    o = { "<cmd>SymbolsOutline<CR>", "Toggle symbols outline" },
+    -- 打开启动页面
+    [";"] = { "<cmd>Alpha<CR>", "Dashboard" },
 }, { prefix = "<leader>" })

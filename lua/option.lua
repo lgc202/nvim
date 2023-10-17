@@ -9,6 +9,7 @@ opt.autochdir = false
 
 opt.number = true
 opt.relativenumber = true
+-- vim.g.neovide = true
 
 -- -- highlight current row
 -- opt.cursorline = true

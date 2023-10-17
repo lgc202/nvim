@@ -14,6 +14,25 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
     -- manage itself
     "folke/lazy.nvim",
+    -- 通知插件
+    {
+        "rcarriga/nvim-notify",
+        event = "VeryLazy",
+        config = function()
+            require("plugin.nvim-notify")
+        end,
+    },
+    -- vim 开始界面
+    {
+        "goolord/alpha-nvim",
+        event = "VIMEnter",
+        dependencies = {
+            "nvim-tree/nvim-web-devicons",
+        },
+        config = function()
+            require("plugin.alpha")
+        end,
+    },
     -- 主题
     {
         "projekt0n/github-nvim-theme",
@@ -83,44 +102,21 @@ require("lazy").setup({
     },
     -- 代码大纲
     {
-        "stevearc/aerial.nvim",
-        event = "VeryLazy",
-        dependencies = {
-            "nvim-treesitter/nvim-treesitter",
-            "nvim-tree/nvim-web-devicons"
-        },
+        "simrat39/symbols-outline.nvim",
+        lazy = true,
+        cmd = { "SymbolsOutline", "SymbolsOutlineOpen", "SymbolsOutlineClose" },
         config = function()
-            require("plugin.aerial")
-        end,
-    },
-    -- 模糊查找
-    {
-        "nvim-telescope/telescope.nvim",
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-            -- "nvim-telescope/telescope-dap.nvim",
-            "debugloop/telescope-undo.nvim",
-            {
-                "nvim-telescope/telescope-fzf-native.nvim",
-                build =
-                "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
-            },
-        },
-        event = "VeryLazy",
-        config = function()
-            require("plugin.telescope")
-        end,
+            require("plugin.symbols-outline")
+        end
     },
     -- LSP
     {
-        -- mason 用来管理lsp的，比如用来安装 lsp server 等
         "williamboman/mason.nvim",
         event = "VeryLazy",
         dependencies = {
             "neovim/nvim-lspconfig",
             "williamboman/mason-lspconfig.nvim",
             {
-                -- 与调试相关的插件
                 "mfussenegger/nvim-dap",
                 dependencies = {
                     "rcarriga/nvim-dap-ui",
@@ -133,6 +129,7 @@ require("lazy").setup({
             require("plugin.mason")
         end,
     },
+    -- 代码补全
     {
         "hrsh7th/nvim-cmp",
         dependencies = {
@@ -159,6 +156,14 @@ require("lazy").setup({
         event = "VeryLazy",
         config = function()
             require("plugin.cmp")
+        end,
+    },
+    -- 代码格式化, 自动导入
+    {
+        "stevearc/conform.nvim",
+        event = "VeryLazy",
+        config = function()
+            require("plugin.conform")
         end,
     },
 })

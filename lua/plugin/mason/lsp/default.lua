@@ -12,7 +12,7 @@ capabilities.textDocument.foldingRange = {
     lineFoldingOnly = true,
 }
 
-local function default_confit_builder()
+local function default_config_builder()
     -- local init_config = true
     local opt = {
         capabilities = capabilities,
@@ -34,4 +34,4 @@ local function default_confit_builder()
     return opt
 end
 
-return default_confit_builder
+return default_config_builder

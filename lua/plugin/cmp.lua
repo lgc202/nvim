@@ -64,12 +64,12 @@ cmp.setup({
     -- Shortcut settings
     mapping = {
         -- Completion appears
-        ["<A-.>"] = cmp.mapping(cmp.mapping.complete(), {
+        ["<C-a>"] = cmp.mapping(cmp.mapping.complete(), {
             "i",
             "c",
         }),
         -- Cancel
-        ["<A-,>"] = cmp.mapping({
+        ["<C-e>"] = cmp.mapping({
             i = cmp.mapping.abort(),
             c = cmp.mapping.close(),
         }),
@@ -89,18 +89,23 @@ cmp.setup({
                 fallback()
             end
         end,
-        -- confirm
-        ["<CR>"] = cmp.mapping({
-            i = function(fallback)
-                if cmp.visible() and cmp.get_active_entry() then
-                    cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
-                else
-                    fallback()
-                end
-            end,
-            s = cmp.mapping.confirm({ select = true }),
-            c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
-        }),
+        -- confirm 
+	["<CR>"] = cmp.mapping(function(fallback)
+        if cmp.visible() then
+          local confirm_opts = vim.deepcopy({behavior = cmp.ConfirmBehavior.Replace,select = false}) -- avoid mutating the original opts below
+          local is_insert_mode = function()
+            return vim.api.nvim_get_mode().mode:sub(1, 1) == "i"
+          end
+          if is_insert_mode() then -- prevent overwriting brackets
+            confirm_opts.behavior = cmp.ConfirmBehavior.Insert
+          end
+          if cmp.confirm(confirm_opts) then
+            return -- success, exit early
+          end
+        end
+
+        fallback() -- if not exited early, always fallback
+      end),
         -- super tab
         ["<Tab>"] = cmp.mapping(function(fallback)
             local has_words_before = function()
