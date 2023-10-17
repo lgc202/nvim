@@ -177,4 +177,21 @@ require("lazy").setup({
             require("plugin.fidget")
         end,
     },
+    -- 高亮当前所在窗口
+    {
+        "levouh/tint.nvim",
+        event = "VeryLazy",
+        config = function()
+            ---@diagnostic disable-next-line: missing-parameter
+            require("tint").setup()
+        end,
+    },
+    -- 智能缩进
+    {
+        "nmac427/guess-indent.nvim",
+        event = "VeryLazy",
+        config = function()
+            require("guess-indent").setup()
+        end,
+    },
 })
