@@ -259,4 +259,12 @@ require("lazy").setup({
             require("hop").setup()
         end,
     },
+    -- 浮动终端
+    {
+        "voldikss/vim-floaterm",
+        event = "VeryLazy",
+        config = function()
+            require("plugin.vim-floaterm")
+        end,
+    },
 })

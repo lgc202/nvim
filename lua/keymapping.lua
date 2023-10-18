@@ -132,4 +132,30 @@ which_key.register({
             "Git Diff",
         },
     },
+    -- Terminal 相关
+    t = {
+        name = "+Terminal",
+        t = { ":FloatermToggle<CR>", "Toggle Terminal" },
+        n = { ":FloatermNew<CR>", "New Terminal" },
+        l = { ":FloatermNew lazygit <CR>", "Open lazygit" }
+    },
+
+    -- if vim.fn.executable("lazygit") then
+    --     map("n", "fg", ":FloatermNew lazygit <CR>")
+    -- end
+
+    -- if vim.fn.executable("lazydocker") then
+    --     map("n", "fd", ":FloatermNew lazydocker <CR>")
+    -- end
 }, { prefix = "<leader>" })
+
+which_key.register({
+    t = {
+        name = "+Terminal",
+        t = { "<C-\\><C-n>:FloatermToggle<CR>", "Toggle Terminal" },
+        n = { "<C-\\><C-n>:FloatermNew<CR>", "New Terminal" },
+        j = { "<C-\\><C-n>:FloatermNext<CR>", "Next Terminal" },
+        k = { "<C-\\><C-n>:FloatermPrev<CR>", "Previous Terminal" },
+        d = { "<C-\\><C-n>:FloatermKill<CR>", "Delete Terminal" }
+    }
+}, { mode = "t" })
