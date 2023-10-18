@@ -224,4 +224,12 @@ require("lazy").setup({
             require("plugin.telescope")
         end,
     },
+    -- git相关插件
+    {
+        "lewis6991/gitsigns.nvim",
+        event = "VeryLazy",
+        config = function()
+            require("plugin.gitsigns")
+        end,
+    },
 })
