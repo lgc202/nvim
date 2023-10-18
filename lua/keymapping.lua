@@ -46,4 +46,18 @@ which_key.register({
     o = { "<cmd>SymbolsOutline<CR>", "Toggle symbols outline" },
     -- 打开启动页面
     [";"] = { "<cmd>Alpha<CR>", "Dashboard" },
+    -- 顶部标签相关
+    b = {
+        name = "+Buffer",
+        j = { "<cmd>BufferLinePick<cr>", "Jump" },
+        f = { "<cmd>Telescope buffers<cr>", "Find" },
+        b = { "<cmd>BufferLineCyclePrev<cr>", "Previous" },
+        n = { "<cmd>BufferLineCycleNext<cr>", "Next" },
+        c = { "<cmd>Bdelete<cr>", "Close Current" },
+        h = { "<cmd>BufferLineCloseLeft<cr>", "Close all to the left" },
+        l = {
+            "<cmd>BufferLineCloseRight<cr>",
+            "Close all to the right",
+        },
+    },
 }, { prefix = "<leader>" })

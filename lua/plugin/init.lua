@@ -78,6 +78,18 @@ require("lazy").setup({
             vim.o.timeoutlen = 300
         end,
     },
+    -- 顶部标签
+    {
+        "akinsho/bufferline.nvim",
+        dependencies = {
+            "nvim-tree/nvim-web-devicons",
+            "moll/vim-bbye",
+        },
+        event = "UIEnter",
+        config = function()
+            require("plugin.bufferline")
+        end,
+    },
     -- 底部状态栏
     {
         "nvim-lualine/lualine.nvim",
