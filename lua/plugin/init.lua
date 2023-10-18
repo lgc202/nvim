@@ -206,4 +206,22 @@ require("lazy").setup({
             require("guess-indent").setup()
         end,
     },
+    -- 模糊查找插件
+    {
+        "nvim-telescope/telescope.nvim",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            -- "nvim-telescope/telescope-dap.nvim",
+            -- "debugloop/telescope-undo.nvim",
+            {
+                "nvim-telescope/telescope-fzf-native.nvim",
+                build =
+                "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+            },
+        },
+        event = "VeryLazy",
+        config = function()
+            require("plugin.telescope")
+        end,
+    },
 })

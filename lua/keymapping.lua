@@ -1,6 +1,4 @@
-local tool = require("tool")
 local which_key = require("which-key")
-local map = tool.map
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
@@ -60,4 +58,27 @@ which_key.register({
             "Close all to the right",
         },
     },
+    -- 模糊查找相关
+    f = {
+        name = "+Find",
+        f = { "<cmd>Telescope find_files<CR>", "Find files" },
+        g = { "<cmd>Telescope live_grep<CR>", "Global search" },
+        w = { "<cmd>Telescope diagnostics<CR>", "Workspace diagnostics" },
+        b = { "<cmd>Telescope diagnostics bufnr=0<CR>", "Buffer diagnostics" },
+    },
+    -- LSP 相关
+    l = {
+        name = "+LSP",
+        a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
+        i = { "<cmd>LspInfo<cr>", "Info" },
+        I = { "<cmd>Mason<cr>", "Mason Info" },
+        j = {
+            vim.diagnostic.goto_next,
+            "Next Diagnostic",
+        },
+        k = {
+            vim.diagnostic.goto_prev,
+            "Prev Diagnostic",
+        },
+    }
 }, { prefix = "<leader>" })

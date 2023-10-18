@@ -45,17 +45,17 @@ telescope.setup({
             },
         },
         fzf = {
-            fuzzy = true, -- false will only do exact matching
+            fuzzy = true,                   -- false will only do exact matching
             override_generic_sorter = true, -- override the generic sorter
-            override_file_sorter = true, -- override the file sorter
-            case_mode = "smart_case", -- or "ignore_case" or "respect_case"
+            override_file_sorter = true,    -- override the file sorter
+            case_mode = "smart_case",       -- or "ignore_case" or "respect_case"
             -- the default case_mode is "smart_case"
         },
         aerial = {
             -- Display symbols as <root>.<parent>.<symbol>
             show_nesting = {
                 ["_"] = false, -- This key will be the default
-                json = true, -- You can set the option for specific filetypes
+                json = true,   -- You can set the option for specific filetypes
                 yaml = true,
             },
         },
@@ -64,16 +64,5 @@ telescope.setup({
 
 -- Telescope extensions
 telescope.load_extension("fzf")
-telescope.load_extension("undo")
-telescope.load_extension("aerial")
-
-local tool = require("tool")
-local map = tool.map
--- find files
-map("n", "<C-p>", ":Telescope find_files<CR>")
--- Global search
-map("n", "<C-f>", ":Telescope live_grep<CR>")
--- workspace_diagnostics
-map("n", "<leader>wd", ":Telescope diagnostics<CR>")
--- undo
-map("n", "<leader>u", ":Telescope undo<cr>")
+-- telescope.load_extension("undo")
+-- telescope.load_extension("aerial")
