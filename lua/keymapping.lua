@@ -63,8 +63,13 @@ which_key.register({
         name = "+Find",
         f = { "<cmd>Telescope find_files<CR>", "Find files" },
         g = { "<cmd>Telescope live_grep<CR>", "Global search" },
-        w = { "<cmd>Telescope diagnostics<CR>", "Workspace diagnostics" },
-        b = { "<cmd>Telescope diagnostics bufnr=0<CR>", "Buffer diagnostics" },
+        d = { "<cmd>Telescope diagnostics bufnr=0<CR>", "Buffer diagnostics" },
+        D = { "<cmd>Telescope diagnostics<CR>", "Workspace diagnostics" },
+        s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
+        S = {
+            "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
+            "Workspace Symbols",
+        },
     },
     -- LSP 相关
     l = {
@@ -80,5 +85,13 @@ which_key.register({
             vim.diagnostic.goto_prev,
             "Prev Diagnostic",
         },
-    }
+        q = { vim.diagnostic.setloclist, "Quickfix" },
+        r = { vim.lsp.buf.rename, "Rename" },
+        -- e = { "<cmd>Telescope quickfix<cr>", "Telescope Quickfix" },
+    },
+    -- Git 相关
+    g = {
+        name = "+Git",
+        b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
+    },
 }, { prefix = "<leader>" })
