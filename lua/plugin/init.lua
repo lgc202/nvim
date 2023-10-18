@@ -121,7 +121,7 @@ require("lazy").setup({
         cmd = { "SymbolsOutline", "SymbolsOutlineOpen", "SymbolsOutlineClose" },
         config = function()
             require("plugin.symbols-outline")
-        end
+        end,
     },
     -- LSP
     {
@@ -230,6 +230,33 @@ require("lazy").setup({
         event = "VeryLazy",
         config = function()
             require("plugin.gitsigns")
+        end,
+    },
+    -- TODO 插件
+    {
+        "folke/todo-comments.nvim",
+        dependencies = { "nvim-lua/plenary.nvim" },
+        event = "VeryLazy",
+        opts = {},
+    },
+    --   代码注释插件
+    {
+        "numToStr/Comment.nvim",
+        dependencies = {
+            "JoosepAlviste/nvim-ts-context-commentstring",
+        },
+        event = "VeryLazy",
+        config = function()
+            require("plugin.Comment")
+        end,
+    },
+    -- 快速移动插件
+    {
+        -- 类似easyemotion，功能更强大
+        "phaazon/hop.nvim",
+        event = "BufRead",
+        config = function()
+            require("hop").setup()
         end,
     },
 })

@@ -12,7 +12,22 @@ which_key.register({
         c = { "<C-w>c", "Close Current Window" },
         -- 关闭其它窗口
         o = { "<C-w>o", "Close Other Window" },
+        -- 快速移动
+        s = { ":HopChar1<cr>", "Quick move to char" },
+        w = { ":HopWord<cr>", "Quick move to word" },
+        j = { ":HopLine<cr>", "Quick move to line" },
+        k = { ":HopLine<cr>", "Quick move to line" },
     },
+    -- 增强f键的功能
+    ["f"] = {
+        "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true })<cr>",
+        "Find Next",
+    },
+    ["F"] = {
+        "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true })<cr>",
+        "Find Previous",
+    },
+
     -- 跳转窗口
     ["<C-h>"] = { "<C-w>h", "Left Window" },
     ["<C-l>"] = { "<C-w>l", "Right Window" },
@@ -88,6 +103,7 @@ which_key.register({
         },
         q = { vim.diagnostic.setloclist, "Quickfix" },
         r = { vim.lsp.buf.rename, "Rename" },
+        f = { "<cmd>lua require 'conform'.format({async = false,lsp_fallback = true})<cr>", "Format" },
         -- e = { "<cmd>Telescope quickfix<cr>", "Telescope Quickfix" },
     },
     -- Git 相关

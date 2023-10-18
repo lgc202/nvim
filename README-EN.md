@@ -25,9 +25,9 @@ https://github.com/nshen/InsisVim/assets/181506/ca0fe9a0-122f-471a-bbe0-7656e030
 
 `npx zx https://insisvim.github.io/install.mjs`
 
-> Note: If any of `git`, `wget`, `curl`, `ripgrep`, `node.js v16+`, `nvim v0.9.x` are missing, the installation will exit and prompt you.
+> Note: If any of `git`, `wget`, `curl`, `ripgrep`, `cmake`, `node.js v16+`, `nvim v0.9.x` are missing, the installation will exit and prompt you.
 
-> 注意: 安装之前应确保有 `git`、`wget`、`curl`、`ripgrep`、`node.js v16+、nvim v0.9.x` ，中的任何一个，安装将退出，并提示您。
+> 注意: 安装之前应确保有 `git`、`wget`、`curl`、`ripgrep`、`cmake`,`node.js v16+、nvim v0.9.x` ，中的任何一个，安装将退出，并提示您。
 
 On Mac you can `brew install` anything above.
 
