@@ -143,13 +143,17 @@ which_key.register({
         l = { ":FloatermNew lazygit <CR>", "Open lazygit" }
     },
 
-    -- if vim.fn.executable("lazygit") then
-    --     map("n", "fg", ":FloatermNew lazygit <CR>")
-    -- end
-
-    -- if vim.fn.executable("lazydocker") then
-    --     map("n", "fd", ":FloatermNew lazydocker <CR>")
-    -- end
+    -- 测试相关
+    n = {
+        name = "+Test",
+        r = { "<cmd>lua require 'neotest'.run.run()<cr>", "Function" },
+        -- TODO
+        -- d = { "<cmd>lua require 'neotest'.run.run({ strategy = 'dap' })<cr>", "Debug" },
+        f = { "<cmd>lua require 'neotest'.run.run(vim.fn.expand('%'))<cr>", "File" },
+        s = { "<cmd>lua require 'neotest'.run.stop()<cr>", "Stop" },
+        o = { "<cmd>lua require 'neotest'.output.open({enter = true})<cr>", "Output" },
+        t = { "<cmd>lua require 'neotest'.summary.toggle()<cr>", "Toggle summary" },
+    }
 }, { prefix = "<leader>" })
 
 which_key.register({

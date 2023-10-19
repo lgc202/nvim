@@ -279,4 +279,15 @@ require("lazy").setup({
             }
         end
     },
+    -- 运行测试
+    {
+        "nvim-neotest/neotest",
+        dependencies = {
+            "nvim-neotest/neotest-go",
+            -- Your other test adapters here
+        },
+        config = function()
+            require("plugin.neotest")
+        end,
+    },
 })
