@@ -9,6 +9,8 @@ opt.autochdir = false
 
 opt.number = true
 opt.relativenumber = true
+-- system clipboard
+opt.clipboard = "unnamedplus"
 
 -- -- highlight current row
 opt.cursorline = true
