@@ -290,4 +290,17 @@ require("lazy").setup({
             require("plugin.neotest")
         end,
     },
+    -- 代码调试
+    {
+        "mfussenegger/nvim-dap",
+        dependencies = {
+            "leoluz/nvim-dap-go",
+            "theHamsta/nvim-dap-virtual-text",
+            "rcarriga/nvim-dap-ui"
+        },
+        -- event = "BufWinEnter",
+        config = function()
+            require("plugin.dap")
+        end,
+    },
 })
