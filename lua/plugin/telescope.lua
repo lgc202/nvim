@@ -4,10 +4,26 @@ if not status then
     return
 end
 
+local status, actions = pcall(require, "telescope.actions")
+if not status then
+    return
+end
+
 telescope.setup({
     defaults = {
         -- The initial mode entered after opening the pop-up window, the default is insert, it can also be normal
         initial_mode = "insert",
+        vimgrep_arguments = {
+            "rg",
+            "--color=never",
+            "--no-heading",
+            "--with-filename",
+            "--line-number",
+            "--column",
+            "--smart-case",
+            "--hidden",
+            "--glob=!.git/",
+        },
         -- Shortcut keys in the window
         mappings = {
             i = {
@@ -24,6 +40,11 @@ telescope.setup({
                 -- The preview window scrolls up and down
                 ["<C-u>"] = "preview_scrolling_up",
                 ["<C-d>"] = "preview_scrolling_down",
+                -- 将结果发送到 quickfix
+                ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
+            },
+            n = {
+                ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
             },
         },
         file_ignore_patterns = { "node_modules", "dist", "__pycache__" },
@@ -45,17 +66,17 @@ telescope.setup({
             },
         },
         fzf = {
-            fuzzy = true,                   -- false will only do exact matching
+            fuzzy = true,             -- false will only do exact matching
             override_generic_sorter = true, -- override the generic sorter
-            override_file_sorter = true,    -- override the file sorter
-            case_mode = "smart_case",       -- or "ignore_case" or "respect_case"
+            override_file_sorter = true, -- override the file sorter
+            case_mode = "smart_case", -- or "ignore_case" or "respect_case"
             -- the default case_mode is "smart_case"
         },
         aerial = {
             -- Display symbols as <root>.<parent>.<symbol>
             show_nesting = {
                 ["_"] = false, -- This key will be the default
-                json = true,   -- You can set the option for specific filetypes
+                json = true, -- You can set the option for specific filetypes
                 yaml = true,
             },
         },

@@ -78,7 +78,8 @@ which_key.register({
     f = {
         name = "+Find",
         f = { "<cmd>Telescope find_files<CR>", "Find files" },
-        g = { "<cmd>Telescope live_grep<CR>", "Global search" },
+        g = { "<cmd>Telescope current_buffer_fuzzy_find<CR>", "Current search" },
+        G = { "<cmd>Telescope live_grep<CR>", "Global search" },
         d = { "<cmd>Telescope diagnostics bufnr=0<CR>", "Buffer diagnostics" },
         D = { "<cmd>Telescope diagnostics<CR>", "Workspace diagnostics" },
         s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
@@ -86,6 +87,8 @@ which_key.register({
             "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
             "Workspace Symbols",
         },
+        p = { "<cmd>Telescope projects<CR>", "Recent project" },
+        r = { "<cmd>Telescope oldfiles<CR>", "Recent files" },
     },
     -- LSP 相关
     l = {
