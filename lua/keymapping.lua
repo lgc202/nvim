@@ -170,7 +170,16 @@ which_key.register({
         p = { "<cmd>lua require'dap'.pause()<cr>", "Pause" },
         r = { "<cmd>lua require'dap'.clear_breakpoints()<cr>", "Removes all breakpoints" },
         q = { "<cmd>lua require'dap'.close()<cr>", "Quit" },
-    }
+    },
+    -- golang 增强
+    c = {
+        name = "+Code",
+        -- -transform camelcase 表示用驼峰式, 参考 https://github.com/fatih/gomodifytags
+        j = { "<cmd> GoTagAdd json -transform camelcase <CR>", "Add json struct tags" },
+        J = { "<cmd> GoTagRm  json <CR>", "Remove json struct tags" },
+        y = { "<cmd> GoTagAdd yaml -transform camelcase <CR>", "Add yaml struct tags" },
+        Y = { "<cmd> GoTagRm  yaml <CR>", "Remove yaml struct tags" },
+    },
 }, { prefix = "<leader>" })
 
 which_key.register({

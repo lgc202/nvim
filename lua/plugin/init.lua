@@ -319,4 +319,15 @@ require("lazy").setup({
       require("plugin.nvim-lastplace")
     end,
   },
+  -- golang 增强
+  {
+    "olexsmir/gopher.nvim",
+    ft = "go",
+    config = function()
+      require("plugin.gopher")
+    end,
+    build = function()
+      vim.cmd [[silent! GoInstallDeps]]
+    end,
+  }
 })
