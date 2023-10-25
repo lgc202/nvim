@@ -183,7 +183,7 @@ which_key.register({
 }, { prefix = "<leader>" })
 
 which_key.register({
-    t = {
+    ["\\"] = {
         name = "+Terminal",
         t = { "<C-\\><C-n>:FloatermToggle<CR>", "Toggle Terminal" },
         n = { "<C-\\><C-n>:FloatermNew<CR>", "New Terminal" },
