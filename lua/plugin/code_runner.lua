@@ -7,7 +7,7 @@ end
 code_runner.setup({
     config = true,
     filetype = {
-        go = "go run",
+        go = "go run .",
         python = "python3 -u",
     },
 })

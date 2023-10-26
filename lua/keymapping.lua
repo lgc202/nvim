@@ -170,6 +170,7 @@ which_key.register({
         p = { "<cmd>lua require'dap'.pause()<cr>", "Pause" },
         r = { "<cmd>lua require'dap'.clear_breakpoints()<cr>", "Removes all breakpoints" },
         q = { "<cmd>lua require'dap'.close()<cr>", "Quit" },
+        s = { "<cmd>lua require('dap-go').debug_test()<cr>", "Debug single test" }
     },
     -- golang 增强
     c = {

@@ -54,7 +54,7 @@ dap.configurations.go = {
         name = "Debug",
         request = "launch",
         args = get_args,
-        program = "${file}",
+        program = "${fileDirname}",
     },
     -- 测试文件的debug
     {
@@ -63,6 +63,6 @@ dap.configurations.go = {
         request = "launch",
         args = get_args,
         mode = "test",
-        program = "${file}",
+        program = "${fileDirname}", -- TODO: 改成单个函数
     },
 }
