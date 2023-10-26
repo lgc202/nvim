@@ -329,5 +329,13 @@ require("lazy").setup({
     build = function()
       vim.cmd [[silent! GoInstallDeps]]
     end,
+  },
+  -- 在 vim 中直接运行代码
+  {
+    "CRAG666/code_runner.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("plugin.code_runner")
+    end,
   }
 })

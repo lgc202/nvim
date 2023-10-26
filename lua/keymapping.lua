@@ -179,6 +179,8 @@ which_key.register({
         J = { "<cmd> GoTagRm  json <CR>", "Remove json struct tags" },
         y = { "<cmd> GoTagAdd yaml -transform camelcase <CR>", "Add yaml struct tags" },
         Y = { "<cmd> GoTagRm  yaml <CR>", "Remove yaml struct tags" },
+        r = { ":RunCode<CR>", "Run code" },
+        c = { ":RunClose<CR>", "Close runner" }
     },
 }, { prefix = "<leader>" })
 
