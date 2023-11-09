@@ -158,6 +158,7 @@ which_key.register({
     -- 调试相关
     d = {
         name = "+Debug",
+        -- 如果要打条件断点, 可以用 lua require'dap'.toggle_breakpoint("i==5")
         t = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Toggle Breakpoint" },
         b = { "<cmd>lua require'dap'.step_back()<cr>", "Step Back" },
         c = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
